@@ -1,25 +1,26 @@
 {
 	"schema_version": 1,
 	"quilt_loader": {
-		"group": "com.example",
-		"id": "example_mod",
+		"group": "dev.yoavmlotok",
+		"id": "thirdgen",
 		"version": "${version}",
 		"metadata": {
-			"name": "Mod Name",
-			"description": "A short description of your mod.",
+			"name": "Third Gen",
+			"description": "A lot of features in a single configurable mod.",
 			"contributors": {
-				"Your name here": "Owner"
+				"Yoav Mlotok": "Author"
 			},
 			"contact": {
-				"homepage": "https://example.com/",
-				"issues": "https://github.com/QuiltMC/quilt-template-mod/issues",
-				"sources": "https://github.com/QuiltMC/quilt-template-mod"
+				"homepage": "https://modrinth.com/mod/thirdgen",
+				"issues": "https://github.com/yoavmlotok/thirdgen/issues",
+				"sources": "https://github.com/yoavmlotok/thirdgen"
 			},
-			"icon": "assets/example_mod/icon.png"
+			"license": "MIT",
+			"icon": "assets/thirdgen/icon.png"
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
-			"init": "com.example.example_mod.ExampleMod"
+			"client_init": "dev.yoavmlotok.thirdgen.ThirdGen"
 		},
 		"depends": [
 			{
@@ -27,14 +28,10 @@
 				"versions": ">=0.19.1"
 			},
 			{
-				"id": "quilted_fabric_api",
-				"versions": ">=7.0.2"
-			},
-			{
 				"id": "minecraft",
 				"versions": ">=1.20"
 			}
 		]
 	},
-	"mixin": "example_mod.mixins.json"
+	"mixin": "thirdgen.mixins.json"
 }
