@@ -17,9 +17,9 @@ public class GameRendererMixin {
 	private boolean renderingPanorama;
 
 	@Inject(at = @At("HEAD"), method = "getFov", cancellable = true)
-	private void getFov(Camera camera, float tickDelta, boolean changingFov, CallbackInfoReturnable<Double> ci) {
+	private void getFov(Camera camera, float tickDelta, boolean changingFov, CallbackInfoReturnable<Double> cir) {
 		if (this.renderingPanorama) {
-			ci.setReturnValue(90.0);
+			cir.setReturnValue(90.0);
 		}
 
 		if (!Zoom.wasAlreadyPressed && ThirdGen.zoomKeyBind.isPressed()) {
@@ -28,7 +28,7 @@ public class GameRendererMixin {
 		Zoom.wasAlreadyPressed = ThirdGen.zoomKeyBind.isPressed();
 
 		if (ThirdGen.zoomKeyBind.isPressed()) {
-			ci.setReturnValue(Zoom.currentFov);
+			cir.setReturnValue(Zoom.currentFov);
 		}
 	}
 }
