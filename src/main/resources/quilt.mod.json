@@ -6,7 +6,7 @@
 		"version": "${version}",
 		"metadata": {
 			"name": "Third Gen",
-			"description": "Adds a few of features in a single configurable mod.",
+			"description": "Adds a few features in a single configurable mod.",
 			"contributors": {
 				"Yoav Mlotok": "Author"
 			},
