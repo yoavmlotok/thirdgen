@@ -2,13 +2,14 @@
 **Work In Progress!**
 
 Third Gen is a mod designed to combine a lot of features together into a single configurable mod.\
-For now it adds the zoom feature, but will add more features in the future!
+For now it adds the zoom feature and improved third person, but will add more features in the future!
 
 ## Current Features
 - Zoom
+- Improved Third Person
 
 ## Planned Features
-- Improved Third Person
+- Even More Improved Third Person
 - New First Person Animations
 
 ## Got A Suggestion Or Want To Report A Bug?
