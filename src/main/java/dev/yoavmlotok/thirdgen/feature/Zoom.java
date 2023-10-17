@@ -1,8 +1,9 @@
 package dev.yoavmlotok.thirdgen.feature;
 
+import dev.yoavmlotok.thirdgen.config.ThirdGenConfig;
+
 public class Zoom {
-	public static double initialFov = 15.0;
-	public static double currentFov = initialFov;
+	public static double currentFov = ThirdGenConfig.initialZoomFov;
 
 	public static boolean wasAlreadyPressed;
 }

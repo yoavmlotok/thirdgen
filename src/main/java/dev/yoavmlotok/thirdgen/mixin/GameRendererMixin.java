@@ -1,6 +1,7 @@
 package dev.yoavmlotok.thirdgen.mixin;
 
 import dev.yoavmlotok.thirdgen.ThirdGen;
+import dev.yoavmlotok.thirdgen.config.ThirdGenConfig;
 import dev.yoavmlotok.thirdgen.feature.Zoom;
 import net.minecraft.client.render.Camera;
 import net.minecraft.client.render.GameRenderer;
@@ -22,7 +23,7 @@ public class GameRendererMixin {
 		}
 
 		if (!Zoom.wasAlreadyPressed && ThirdGen.zoomKeyBind.isPressed()) {
-			Zoom.currentFov = Zoom.initialFov;
+			Zoom.currentFov = ThirdGenConfig.initialZoomFov;
 		}
 		Zoom.wasAlreadyPressed = ThirdGen.zoomKeyBind.isPressed();
 
