@@ -22,13 +22,13 @@ public abstract class GameOptionsMixin {
 			cir.setReturnValue(Perspective.THIRD_PERSON_FRONT);
 		}
 
-		if (ImprovedThirdPerson.isFlying() && !ImprovedThirdPerson.perspectiveManuallyChanged) {
+		if (ImprovedThirdPerson.isConditionMet() && !ImprovedThirdPerson.perspectiveManuallyChanged) {
 			this.perspective = Perspective.THIRD_PERSON_BACK;
 		}
-		if (!ImprovedThirdPerson.isFlying() && !ImprovedThirdPerson.perspectiveManuallyChanged) {
+		if (!ImprovedThirdPerson.isConditionMet() && !ImprovedThirdPerson.perspectiveManuallyChanged) {
 			this.perspective = Perspective.FIRST_PERSON;
 		}
-		if (!ImprovedThirdPerson.isFlying() && this.perspective != Perspective.THIRD_PERSON_BACK) {
+		if (!ImprovedThirdPerson.isConditionMet() && this.perspective != Perspective.THIRD_PERSON_BACK) {
 			ImprovedThirdPerson.perspectiveManuallyChanged = false;
 		}
 	}
