@@ -23,7 +23,7 @@ public class GameRendererMixin {
 		}
 
 		if (!Zoom.wasAlreadyPressed && ThirdGen.zoomKeyBind.isPressed()) {
-			Zoom.currentFov = ThirdGenConfig.initialZoomFov;
+			Zoom.currentFov = ThirdGenConfig.initialZoomFov.getValue();
 		}
 		Zoom.wasAlreadyPressed = ThirdGen.zoomKeyBind.isPressed();
 

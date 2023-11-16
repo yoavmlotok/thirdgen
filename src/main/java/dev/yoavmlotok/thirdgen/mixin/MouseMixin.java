@@ -3,6 +3,7 @@ package dev.yoavmlotok.thirdgen.mixin;
 import dev.yoavmlotok.thirdgen.ThirdGen;
 import dev.yoavmlotok.thirdgen.config.ThirdGenConfig;
 import dev.yoavmlotok.thirdgen.feature.Zoom;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.Mouse;
 import net.minecraft.util.math.MathHelper;
 import org.spongepowered.asm.mixin.Mixin;
@@ -22,15 +23,15 @@ public class MouseMixin {
 	@Inject(at = @At("HEAD"), method = "updateLookDirection")
 	private void updateLookDirection(CallbackInfo ci) {
 		if (ThirdGen.zoomKeyBind.isPressed()) {
-			cursorDeltaX *= ThirdGenConfig.zoomMouseSensitivityMultiplier * Zoom.currentFov / ThirdGenConfig.initialZoomFov;
-			cursorDeltaY *= ThirdGenConfig.zoomMouseSensitivityMultiplier * Zoom.currentFov / ThirdGenConfig.initialZoomFov;
+			cursorDeltaX *= Zoom.currentFov / MinecraftClient.getInstance().options.getFov().get();
+			cursorDeltaY *= Zoom.currentFov / MinecraftClient.getInstance().options.getFov().get();
 		}
 	}
 
 	@Inject(at = @At("HEAD"), method = "onMouseScroll", cancellable = true)
 	private void onMouseScroll(long window, double scrollDeltaX, double scrollDeltaY, CallbackInfo ci) {
 		if (ThirdGen.zoomKeyBind.isPressed()) {
-			Zoom.currentFov = MathHelper.clamp(Zoom.currentFov - scrollDeltaY * ThirdGenConfig.fovChangeOnScroll * Zoom.currentFov / ThirdGenConfig.initialZoomFov, 0.15, 30.0);
+			Zoom.currentFov = MathHelper.clamp(Zoom.currentFov - scrollDeltaY * 10 * Zoom.currentFov / ThirdGenConfig.initialZoomFov.maxValue, ThirdGenConfig.initialZoomFov.minValue, ThirdGenConfig.initialZoomFov.maxValue);
 			ci.cancel();
 		}
 	}
